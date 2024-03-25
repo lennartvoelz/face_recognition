@@ -2,19 +2,24 @@ import cv2
 from flask import Flask, render_template, Response
 import face_recognition
 import numpy as np
+import os
+import data_download
 app=Flask(__name__)
 camera = cv2.VideoCapture(0)
-# Load a sample picture and learn how to recognize it.
-lennart_image = face_recognition.load_image_file("../data/lennart.jpg")
-lennart_face_encoding = face_recognition.face_encodings(lennart_image)[0]
 
-# Create arrays of known face encodings and their names
-known_face_encodings = [
-    lennart_face_encoding
-]
-known_face_names = [
-    "Lennart"
-]
+data_download.download_all()
+
+data_folder = "../data"
+number_of_files = len([name for name in os.listdir(data_folder) if os.path.isfile(os.path.join(data_folder, name))])
+
+image, name, face_encodings = [], [], []
+for i in range(number_of_files):
+    image.append(cv2.imread(f"../data/{i}.jpg"))
+    name.append(i)
+    face_encodings.append(face_recognition.face_encodings(image[i])[0])
+
+known_face_encodings = face_encodings
+known_face_names = name
 # Initialize some variables
 face_locations = []
 face_encodings = []
@@ -74,7 +79,7 @@ def gen_frames():
 
 @app.route('/')
 def index():
-    return render_template('project.html')
+    return render_template('index.html')
 
 @app.route('/video_feed')
 def video_feed():
