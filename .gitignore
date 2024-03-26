@@ -1,2 +1,11 @@
 *.jpg
 *.png
+
+scripts/confidential.py
+website/.firebaserc
+website/firebase.json
+website/storage.rules
+website/database.rules.json
+website/.firebase/*
+website/package-lock.json
+website/package.json
