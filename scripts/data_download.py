@@ -1,6 +1,7 @@
 from imports import pd, requests, cv2, np
+import confidential
 
-firebase_url = "https://database-dc7f0-default-rtdb.europe-west1.firebasedatabase.app/images.json"
+firebase_url = confidential.get_url()
 
 response = requests.get(firebase_url)
 
