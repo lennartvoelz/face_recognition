@@ -7,6 +7,8 @@ Done:
 - files from the real-time database are retrieved with the Python library requests and stored in easily accessible pandas dataframe
 - opencv is used to process the images
 - git ignore file added to not store data in public github repo
+- url to database is not longer visible in data_download.py
+- it is still visible in the website path but since this repo is only for private usage and showcasing not important for now (website ordner wouldn't be visible in release version)
 
 Planned:
 - implementation of recognition system in browser using flask
