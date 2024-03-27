@@ -8,8 +8,12 @@ Done:
 - opencv is used to process the images
 - git ignore file added to not store data in public github repo
 - url to database is not longer visible in data_download.py
-- it is still visible in the website path but since this repo is only for private usage and showcasing not important for now (website ordner wouldn't be visible in release version)
+- it is still visible in the website path but since this repo is only for private usage and showcasing not important for now (website ordner wouldn't be visible in release version
+- prototype model to predict
+- camera connection to browser using flask
 
 Planned:
+- use opencv to capture frames from camera input -> do live prediction
+- button to train cnn on upload data
 - implementation of recognition system in browser using flask
 - use cloud services to not have to run server locally
