@@ -1,16 +1,13 @@
-import cv2 as cv
-import numpy as np
-import os
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from imports import cv2, os, np, tf, ImageDataGenerator
 
 def read_images_in_folder(folder_path):
     images = []
     for filename in os.listdir(folder_path):
         if filename.endswith('.jpg') or filename.endswith('.png'):
             image_path = os.path.join(folder_path, filename)
-            image = cv.imread(image_path)
-            image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
-            image = cv.resize(image, (250, 250))
+            image = cv2.imread(image_path)
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            image = cv2.resize(image, (250, 250))
             if image is not None:
                 images.append(image)
     return images
