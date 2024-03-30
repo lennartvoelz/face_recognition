@@ -13,10 +13,11 @@
     </head>
 
     <body>
-        <section class="uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
-            <h1 class="uk-margin-xlarge-left uk-light uk-text-left uk-margin-xlarge-right">Face Recognition</h1>
+        <section class="uk-margin-xlarge-top uk-margin-xlarge-bottom">
+            <h1 class="uk-margin-xlarge-left uk-text-capitalize uk-light uk-margin-xlarge-right">Image upload</h1>
             <a href="index.html" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary">Back to home</a>
         </section>
+        <center>
         <div class="uk-margin">
             <input type="text" id="label" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-form-width-large uk-button-secondary" placeholder="Input name"/>
         </div>
@@ -26,6 +27,12 @@
         <div class="uk-margin">
             <button id="upload" onclick="uploadImage()" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary uk-form-width-large">Upload Image</button>
         </div>
+
+        <div class="uk-margin">
+            <a href="camera.html" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary uk-form-width-large">Take a picture</a>
+        </div>
+
+        </center>
 
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";

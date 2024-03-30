@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/uikit.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="js/uikit.js"></script>
+        <script src="js/uikit-icons.js"></script>
+    <title>Face Recognition</title>
+</head>
+<body>
+    <section class="uk-margin-small-top">
+        <h1 class="uk-margin-xlarge-left uk-text-capitalize uk-light uk-margin-xlarge-right">Camera</h1>
+        <a href="project.html" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary">Back to upload</a>
+    </section>
+    <center>
+    <div class="video-wrap">
+        <video id="video" playsinline autoplay></video>
+    </div>
+
+    <div class="controller">
+        <button id="snap" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary uk-form-width-large uk-margin-xlarge-right">Capture</button>
+    </div>
+
+    <canvas id="canvas" width="1280" height="720"></canvas>
+    </center>
+
+    <script>
+        'use strict';
+
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const snap = document.getElementById('snap');
+        const errorMsgElement = document.getElementById('spanErrorMsg');
+
+        const constraints = {
+            audio: false,
+            video: {
+                width: 1600, height: 900
+            }
+        };
+
+        function drawImage() {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        }
+
+
+        async function init() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                handleSuccess(stream);
+            } catch (e) {
+                errorMsgElement.innerHTML = `navigator.getUserMedia.error: ${e.toString()}`;
+            }
+        }
+
+        function handleSuccess(stream) {
+            window.stream = stream;
+            video.srcObject = stream;
+        }
+
+        snap.addEventListener('click', function() {
+        drawImage();
+        const imageDataUrl = canvas.toDataURL('image/png');
+
+        const link = document.createElement('a');
+        link.href = imageDataUrl;
+        link.download = 'captured_image.png';
+            
+        link.click();
+        });
+
+
+        init();
+    </script>
+</body>
+</html>
