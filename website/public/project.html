@@ -67,6 +67,12 @@
                     return;
                 }
 
+                const allowedTypes = ['image/png', 'image/jpeg'];
+                if (!allowedTypes.includes(file.type)) {
+                    alert('Please select a PNG or JPG file.');
+                    return;
+                }
+
                 const storageRef = refStorage(storage, 'images/' + file.name);
 
                 await uploadBytes(storageRef, file).then(async (snapshot) => {
