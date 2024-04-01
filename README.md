@@ -11,6 +11,9 @@ Done:
 - it is still visible in the website path but since this repo is only for private usage and showcasing not important for now (website ordner wouldn't be visible in release version
 - prototype model to predict
 - camera connection to browser using flask
+- model is now fully functional
+- input image augmentation is used to somehow compensate lack of data
+- build-in camera: user can use camera to take a picture on the website itself
 
 Planned:
 - use opencv to capture frames from camera input -> do live prediction
