@@ -15,7 +15,12 @@ Done:
 - input image augmentation is used to somehow compensate lack of data
 - build-in camera: user can use camera to take a picture on the website itself
 - file upload restricted to .jpg and .png
-- model perfomance improved and added data from https://scikit-learn.org/0.19/datasets/labeled_faces.html
+- data from https://scikit-learn.org/0.19/datasets/labeled_faces.html
+- the model has been greatly improved by model construction inspired by this research paper: https://www.sciencedirect.com/science/article/pii/S2667305323000376
+![performance before changes](old_model.jpg)
+![performance after changes](paper_based.jpg)
+
+
 
 Planned:
 - use opencv to capture frames from camera input -> do live prediction
